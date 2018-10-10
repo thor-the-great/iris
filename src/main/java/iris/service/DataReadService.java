@@ -1,4 +1,4 @@
-package iris;
+package iris.service;
 
 import com.sun.syndication.feed.synd.SyndEntryImpl;
 import com.sun.syndication.feed.synd.SyndFeed;
@@ -23,7 +23,7 @@ public class DataReadService {
         }
     }
 
-    List<DataItem> readData(String rssUrl) {
+    public List<DataItem> readData(String rssUrl) {
         List<DataItem> res = new LinkedList();
         try {
             URL feedUrl = new URL(rssUrl);
@@ -45,7 +45,7 @@ public class DataReadService {
         return res;
     }
 
-    class DataItem {
+    public class DataItem {
         public String getTitle() {
             return title;
         }
