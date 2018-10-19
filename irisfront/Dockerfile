@@ -1,8 +1,8 @@
 FROM openjdk:8-jdk-alpine
-EXPOSE 5000
+EXPOSE 8080
 ARG DEPENDENCY
 COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY ${DEPENDENCY}/META-INF /app/META-INF
 COPY ${DEPENDENCY}/BOOT-INF/classes /app
-ENTRYPOINT ["java","-cp","app:app/lib/*","iris.worker.AppDriver"]
+ENTRYPOINT ["java","-cp","app:app/lib/*","iris.front.AppFrontDriver"]
 CMD java

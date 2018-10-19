@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Subscribe form</h1>
+  <form>
+    <div class="form-group">
+      <label for="url">Craig list URL</label>
+      <input type="text" class="form-control" id="url" name="url" [(ngModel)]="url" required>
+    </div>
+
+    <button type="submit" class="btn btn-success" (click) = subscribe()>Subscribe</button>
+
+  </form>
+</div>

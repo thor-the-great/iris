@@ -6,6 +6,9 @@
     <groupId>iris</groupId>
     <artifactId>iris</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>irisfront</module>
+    </modules>
     <packaging>pom</packaging>
     <parent>
         <groupId>org.springframework.boot</groupId>
