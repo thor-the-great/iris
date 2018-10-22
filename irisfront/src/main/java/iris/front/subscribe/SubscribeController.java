@@ -18,7 +18,7 @@ public class SubscribeController {
     @PostMapping("/subscribeNew")
     @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<SubscribeResponse> subscribe(@Valid @RequestBody SubscribeRequest dataPullRequest) {
-        logger.debug("subscribe, url is " + dataPullRequest.getUrl());
+        logger.trace("subscribe controller, url is " + dataPullRequest.getUrl() + " email is " + dataPullRequest.getEmail());
         SubscribeResponse response = new SubscribeResponse(true);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }

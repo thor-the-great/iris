@@ -8,6 +8,7 @@ import { SubscribeComponent } from './subscribe/subscribe.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { SubscriberService } from './shared/subscriber/subscriber.service';
+import { ConfigService } from './shared/config.service';
 
 const appRoutes: Routes = [
   {
@@ -26,7 +27,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [SubscriberService],
+  providers: [SubscriberService, ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

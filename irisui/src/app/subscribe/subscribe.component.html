@@ -1,12 +1,22 @@
 <div class="container">
   <h1>Subscribe form</h1>
-  <form>
-    <div class="form-group">
-      <label for="url">Craig list URL</label>
-      <input type="text" class="form-control" id="url" name="url" [(ngModel)]="url" required>
-    </div>
+  <div *ngIf="subscribed">
+    <p>
+      Successfully subscribed!
+    </p>
+  </div>
+  <div *ngIf="!subscribed">
+    <form>
+      <div class="form-group">
+        <label for="url">Craig list URL:</label>
+        <input type="text" class="form-control" id="url" name="url" [(ngModel)]="url" required>
+        <p>
+        <label for="email">Your email:</label>
+        <input type="text" class="form-control" id="email" name="url" [(ngModel)]="email" required>
+      </div>
 
-    <button type="submit" class="btn btn-success" (click) = subscribe()>Subscribe</button>
+      <button type="submit" class="btn btn-success" (click) = subscribe()>Subscribe</button>
 
-  </form>
+    </form>
+  </div>
 </div>

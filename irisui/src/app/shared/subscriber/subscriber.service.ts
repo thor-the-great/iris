@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ConfigService} from '../config.service';
 
 const httpOptions = {
   headers : new HttpHeaders({'Content-Type' : 'application/json'})
@@ -10,14 +11,18 @@ const httpOptions = {
 })
 export class SubscriberService {
 
-  constructor(private http: HttpClient) {
+  serverPath : string;
+
+  constructor(public configService: ConfigService, private http: HttpClient) {
+    this.serverPath = this.configService.getServerPath();
+    console.log('server path : ' + this.serverPath);
   }
 
-  subscribe(subcribeUrl: string) {
+  subscribe(subcribeUrl: string, subcriberEmail: string) {
     console.log('url : ' + subcribeUrl);
-    var serviceUrl = 'http://localhost:8080/subscribeNew';
-    const body = JSON.stringify({url : 'test.com'});
-    console.log('serviceUrl : ' + serviceUrl);
+    var serviceUrl = this.serverPath+'/subscribeNew';
+    const body = JSON.stringify({url : subcribeUrl, email : subcriberEmail});
+    console.log('serviceUrl : ' + body);
     return this.http.post(serviceUrl, body, httpOptions);
   }
 }
